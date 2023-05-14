@@ -1,19 +1,3 @@
 <div class="bg-darkBlue w-full h-screen">
-  <nav
-    class="bg-darkBlue w-full h-24 bg-darkBlue flex items-center justify-between px-6 sticky t-0"
-  >
-    <img src="/assets/logo.png" width="50" height="50" alt="app-logo" />
-    <div class="flex w-1/2 h-full items-center justify-center">
-      <ul class="w-full flex justify-evenly capitalize font-mono">
-        <li
-          *ngFor="let item of navList"
-          [routerLink]="'/' + item"
-          routerLinkActive="underline decoration-almostWhite"
-          class="text-almostWhite text-lg cursor-pointer hover:underline decoration-almostWhite"
-        >
-          {{ item }}
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <app-navbar></app-navbar>
 </div>
