@@ -1,4 +1,4 @@
-<div class="bg-darkBlue w-full h-full">
+<div class="bg-darkBlue w-full h-full relative">
   <app-navbar></app-navbar>
   <section class="w-full h-auto flex overflow-hidden">
     <div class="w-1/2 h-auto px-10 pt-4">
@@ -13,30 +13,37 @@
       <form
         [formGroup]="form"
         (submit)="onSubmit()"
-        class="flex flex-col w-4/6 mt-4 h-40"
+        class="flex flex-col w-4/6 mt-4 h-60"
       >
         <input
           type="email"
           name="email"
           placeholder="Email ddress or phone number"
           formControlName="email"
-          class="my-2 outline-none border-none rounded-md py-1 px-2"
+          class="my-2 outline-none border border-0 rounded-xl py-2 px-3 bg-almostWhite font-bold font-mono"
         />
         <input
           type="password"
           name="password"
           placeholder="password"
           formControlName="password"
-          class="my-2 outline-none border-none rounded-md py-1 px-2"
+          class="my-2 outline-none border-none rounded-xl py-2 px-3 bg-almostWhite font-bold font-mono"
         />
-        <button
-          class="bg-forestGreen text-darkBlue px-2 py-2 w-1/3 rounded-3xl mt-4"
-        >
-          Login
-        </button>
+        <div class="flex justify-between w-full h-auto items-center">
+          <button
+            class="bg-forestGreen text-darkBlue p-3 w-1/3 rounded-3xl mt-4 font-bold"
+          >
+            Login
+          </button>
+          <p
+            class="underline decoration-forestGreen font-mono-font-bold text-almostWhite cursor-pointer"
+          >
+            Forgot password?
+          </p>
+        </div>
       </form>
     </div>
-    <div class="w-1/2 h-auto flex justify-center">
+    <div class="w-1/2 h-1/2 flex justify-center">
       <img
         src="/assets/chat-history-image.png"
         alt="chat history image"
