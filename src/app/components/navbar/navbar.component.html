@@ -9,7 +9,9 @@
     alt="app-logo"
     class="cursor-pointer"
   />
-  <div class="flex w-auto h-full items-center justify-center">
+  <div
+    class="flex w-auto h-full items-center justify-center max-[768px]:hidden"
+  >
     <ul class="w-full flex capitalize font-mono">
       <li
         *ngFor="let item of navList"
