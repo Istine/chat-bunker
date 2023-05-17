@@ -1,49 +1,55 @@
-<div class="bg-darkBlue w-full h-full relative">
+<div class="bg-slate-50 w-full h-screen box-border relative max-w-7xl mx-auto">
   <app-navbar></app-navbar>
-  <section class="w-full h-auto flex overflow-hidden max-[768px]:flex-col">
-    <div class="w-1/2 h-auto px-10 pt-4 max-[768px]:w-full">
+  <div
+    class="w-full min-h-auto flex overflow-hidden max-[768px]:flex-col min-[1300px]:items-center"
+  >
+    <div class="w-1/2 h-auto px-10 pt-4 max-[768px]:w-full min-[1300px]:w-full">
       <h1
         class="text-almostWhite text-7xl w-74 leading-snug bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
       >
         Hang out anytime, anywhere
       </h1>
-      <p class="font-mono text-lg text-almostWhite mt-4">
+      <p class="font-mono text-lg text-slate-950 mt-4">
         Chat Bunker makes it easy and fun to stay close to your favorite people.
       </p>
       <form
         [formGroup]="form"
         (submit)="onSubmit()"
-        class="flex flex-col w-4/6 mt-4 h-60"
+        class="flex flex-col w-4/6 mt-4 h-60 max-[768px]:w-full"
       >
         <input
           type="email"
           name="email"
           placeholder="Email ddress or phone number"
           formControlName="email"
-          class="my-2 outline-none border border-0 rounded-xl py-2 px-3 bg-almostWhite font-bold font-mono"
+          class="my-2 outline-none border border-0 rounded-xl py-2 px-3 bg-almostWhite font-bold font-mono max-[768px]:w-full"
         />
         <input
           type="password"
           name="password"
           placeholder="password"
           formControlName="password"
-          class="my-2 outline-none border-none rounded-xl py-2 px-3 bg-almostWhite font-bold font-mono"
+          class="my-2 outline-none border-none rounded-xl py-2 px-3 bg-almostWhite font-bold font-mono max-[768px]:w-full"
         />
-        <div class="flex justify-between w-full h-auto items-center">
+        <div
+          class="flex justify-between w-full h-auto items-center max-[768px]:flex-col"
+        >
           <button
-            class="bg-forestGreen text-darkBlue p-3 w-1/3 rounded-3xl mt-4 font-bold"
+            class="bg-blue-600 text-slate-50 p-3 w-1/3 rounded-3xl mt-4 font-bold ease-in duration-300 max-[768px]:w-full hover:bg-blue-900"
           >
             Login
           </button>
           <p
-            class="underline decoration-forestGreen font-mono-font-bold text-almostWhite cursor-pointer"
+            class="underline decoration-blue-600 font-mono-font-bold text-slate-950 cursor-pointer max-[768px]:mt-2"
           >
             Forgot password?
           </p>
         </div>
       </form>
     </div>
-    <div class="w-1/2 h-1/2 flex justify-center max-[768px]:w-full">
+    <div
+      class="w-1/2 h-full flex justify-center max-[768px]:w-full min-[1300px]:h-5/5 w-full"
+    >
       <img
         src="/assets/chat-history-image.png"
         alt="chat history image"
@@ -51,5 +57,6 @@
         height="400"
       />
     </div>
-  </section>
+  </div>
+  <app-footer></app-footer>
 </div>

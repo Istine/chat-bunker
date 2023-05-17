@@ -8,6 +8,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FourzerofourComponent } from './components/fourzerofour/fourzerofour.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LandingComponent,
     FourzerofourComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
