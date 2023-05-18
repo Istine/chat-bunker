@@ -2,22 +2,79 @@
   class="bg-slate-50 w-full h-screen flex flex-col items-center justify-center"
 >
   <img src="/assets/logo.png" width="100" height="100" />
-  <h1 class="font-mono text-4xl py-4">Chat Bunker</h1>
-  <div class="w-72 h-auto flex flex-col">
-    <form class="flex flex-col min-w-full items-center">
-      <input
-        type="text"
-        class="w-full outline-none border border-gray-400 py-2 px-4 my-4 rounded-md focus:border-2 border-gray-900"
-        placeholder="Email address"
-      />
-      <input
-        type="text"
-        class="w-full outline-none border border-gray-400 py-2 px-4 my-4 rounded-md focus:border-2 border-gray-900"
-        placeholder="password"
-      />
-      <button class="bg-blue-600 text-slate-50 rounded-3xl w-2/3 p-2">
+  <h1 class="font-sans text-4xl py-4">Chat Bunker</h1>
+  <div class="w-80 h-auto flex flex-col">
+    <form
+      #signupForm="ngForm"
+      (submit)="onSubmit(signupForm)"
+      class="flex flex-col min-w-full items-center"
+    >
+      <div class="w-full h-auto relative my-4">
+        <input
+          autocomplete="off"
+          type="text"
+          class="font-sans w-full outline-none border border-gray-400 py-2 px-4 rounded-md focus:border-2 border-gray-900"
+          placeholder="Email address"
+          name="email"
+          ngModel
+          #userEmail="ngModel"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          required
+          (change)="getValue(userEmail)"
+          [ngClass]="{
+            'border-2 border-red-400': userEmail.touched && userEmail.invalid
+          }"
+        />
+        <div class="w-full" *ngIf="userEmail.errors?.['required']">
+          <span
+            *ngIf="userEmail.touched && userEmail.invalid"
+            class="w-full h-auto text-red-400 text-sm font-bold font-sans p-1"
+          >
+            Email is required...
+          </span>
+        </div>
+        <div class="w-full" *ngIf="userEmail.errors?.['pattern']">
+          <span
+            *ngIf="userEmail.touched && userEmail.invalid"
+            class="w-full h-auto text-red-400 text-sm font-bold font-sans p-1"
+          >
+            Invalid Email address...
+          </span>
+        </div>
+      </div>
+
+      <div class="w-full h-auto relative my-4">
+        <input
+          type="text"
+          autocomplete="off"
+          class="font-sans w-full outline-none border border-gray-400 py-2 px-4 rounded-md focus:border-2 border-gray-900"
+          placeholder="password"
+          name="password"
+          ngModel
+          #userPassword="ngModel"
+          required
+          [ngClass]="{
+            'border-2 border-red-400':
+              userPassword.touched && userPassword.invalid
+          }"
+        />
+        <div class="w-full" *ngIf="userPassword.errors?.['required']">
+          <span
+            *ngIf="userPassword.touched && userPassword.invalid"
+            class="w-full h-auto text-red-400 text-sm font-bold font-sans p-1"
+          >
+            Password is required...
+          </span>
+        </div>
+      </div>
+
+      <button
+        [disabled]="signupForm.invalid"
+        class="bg-blue-600 text-slate-50 rounded-3xl w-2/3 p-2 font-sans disabled:cursor-not-allowed"
+      >
         Create account
       </button>
     </form>
   </div>
 </div>
+<app-footer></app-footer>
