@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FourzerofourComponent } from './components/fourzerofour/fourzerofour.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FourzerofourComponent,
     NavbarComponent,
     FooterComponent,
+    SignupComponent,
   ],
   imports: [
     CommonModule,

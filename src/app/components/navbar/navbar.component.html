@@ -15,7 +15,7 @@
     <ul class="w-full flex capitalize font-mono">
       <li
         *ngFor="let item of navList"
-        [routerLink]="'/' + item"
+        [routerLink]="'/' + transformLink(item)"
         routerLinkActive="underline decoration-blue-600"
         class="text-slate-950 text-lg cursor-pointer hover:underline decoration-blue-600 mx-4"
       >
