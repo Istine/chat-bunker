@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm, NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { AppCookieServiceService } from 'src/app/services/app-cookie-service.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { SignupPayload } from 'src/app/types';
 
 @Component({
   selector: 'app-signup',
@@ -7,11 +12,24 @@ import { FormControl, NgForm, NgModel } from '@angular/forms';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  onSubmit(form: NgForm) {
-    console.log(form);
-  }
+  user$ = new BehaviorSubject<SignupPayload | null>(null);
+  loading = false;
 
-  getValue(value: NgModel) {
-    console.log(value);
+  constructor(
+    private authService: AuthService,
+    private cookService: AppCookieServiceService,
+    private router: Router
+  ) {}
+
+  onSubmit(form: NgForm) {
+    this.loading = true;
+    this.authService.login(form.value).subscribe((data) => {
+      setTimeout(() => {
+        this.loading = false;
+        this.cookService.set('token', (data as SignupPayload).token);
+        this.user$.next(data as SignupPayload);
+        this.router.navigateByUrl('/user');
+      }, 3000);
+    });
   }
 }

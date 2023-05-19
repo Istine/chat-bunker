@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -10,6 +11,10 @@ import { FourzerofourComponent } from './components/fourzerofour/fourzerofour.co
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AuthService } from './services/auth.service';
+import { AppCookieServiceService } from './services/app-cookie-service.service';
+import { JwtService } from './services/jwt.service';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,7 @@ import { SignupComponent } from './components/signup/signup.component';
     NavbarComponent,
     FooterComponent,
     SignupComponent,
+    UserComponent,
   ],
   imports: [
     CommonModule,
@@ -26,8 +32,9 @@ import { SignupComponent } from './components/signup/signup.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthService, AppCookieServiceService, JwtService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
