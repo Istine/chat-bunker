@@ -1,0 +1,28 @@
+<div class="w-full h-full overflow-auto">
+  <div *ngFor="let email of users$ | async">
+    <div
+      class="w-full min-h-[100px] bg-slate-800 px-4 py-2 flex justify-center items-center"
+    >
+      <div
+        class="flex w-6/6 min-h-[100px] max-h-[150px] items-center bg-slate-800 cursor-pointer rounded-2xl hover:bg-slate-700 p-4"
+      >
+        <div
+          class="w-[70px] h-[70px] bg-green-400 mr-[12px] rounded-2xl flex items-center justify-center"
+        >
+          <span class="font-sans font-bold text-2xl"> P.J</span>
+        </div>
+
+        <div class="flex flex-col">
+          <h3 class="text-md font-bold font-sans text-slate-50 font-sans mb-1">
+            Patrick Jane
+          </h3>
+          <p
+            class="text-slate-400 text-sm max-w-[250px] max-h-full overflow-hidden"
+          >
+            {{ dummy | ellipsis }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

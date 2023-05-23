@@ -1,15 +1,63 @@
-<div class="w-full bg-gray-950 h-screen flex">
-  <div class="w-[70px] h-full bg-gray-950"></div>
-  <div class="w-2/6 h-full bg-slate-800">
+<div class="w-full bg-slate-800 h-screen flex">
+  <div
+    class="w-[100px] h-full bg-slate-700 flex flex-col items-center justify-between py-4"
+  >
+    <h3 class="font-sans text-slate-50 text-3xl">C.B</h3>
+    <div class="w-full h-4/5 flex flex-col items-center">
+      <!-- All chats -->
+      <span
+        routerLink="/user/chat"
+        routerLinkActive="bg-slate-800"
+        class="flex flex-col items-center justify-center h-[100px] w-full cursor-pointer py-2 transition ease-in duration-400 hover:bg-slate-800"
+        ><i class="bx bxs-chat text-slate-50 bx-sm"></i>
+        <span class="font-sans text-sm text-slate-50">All chats</span>
+      </span>
+
+      <!-- Groups -->
+      <span
+        class="flex flex-col items-center cursor-pointer justify-center h-[100px] w-full py-2 transition ease-in duration-400 hover:bg-slate-800"
+        ><i
+          routerLink="/user/groups"
+          routerLinkActive="text-green-300"
+          class="bx bxs-group text-slate-50 bx-sm cursor-pointer"
+        ></i>
+        <span class="font-sans text-sm text-slate-50">Groups</span>
+      </span>
+
+      <!-- Status  -->
+      <span
+        class="flex flex-col items-center cursor-pointer justify-center h-[100px] w-full py-2 transition ease-in duration-400 hover:bg-slate-800"
+        ><i
+          routerLink="/user/status"
+          routerLinkActive="text-green-300"
+          class="bx bx-shape-circle text-slate-50 bx-sm cursor-pointer"
+        ></i>
+        <span class="font-sans text-sm text-slate-50">Status</span>
+      </span>
+
+      <!-- Profile -->
+
+      <span
+        class="flex flex-col items-center cursor-pointer justify-center h-[100px] relative w-full py-2 transition ease-in duration-400 hover:bg-slate-800"
+      >
+        <span
+          class="absolute w-[15px] h-[15px] bg-green-400 rounded-[100%] right-0 top-0"
+        ></span>
+        <i
+          routerLink="/user/profile"
+          routerLinkActive="text-green-300"
+          class="bx bx-user text-slate-50 bx-sm cursor-pointer"
+        ></i>
+        <span class="font-sans text-sm text-slate-50">Profile</span>
+      </span>
+    </div>
+  </div>
+  <div class="w-2/6 h-full bg-slate-800 overflow-hidden">
     <div class="w-full h-[100px] bg-slate-800 flex justify-center items-center">
       <div
-        class="w-4/5 h-auto flex justify-center items-center rounded-2xl bg-slate-600"
+        class="w-4/6 h-auto flex justify-center items-center rounded-2xl bg-slate-600"
       >
-        <img
-          src="/assets/search.png"
-          alt="search icon"
-          class="w-[25px] h-[25px]"
-        />
+        <i class="bx bx-search bx-sm text-slate-50 ml-2"></i>
         <input
           class="w-5/6 py-3 px-6 rounded-2xl bg-slate-600 outline-none border-0 text-gray-300 font-sans"
           type="text"
@@ -17,5 +65,9 @@
         />
       </div>
     </div>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="w-4/6 h-full">
+    <app-message-box></app-message-box>
   </div>
 </div>

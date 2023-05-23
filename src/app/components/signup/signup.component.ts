@@ -23,13 +23,15 @@ export class SignupComponent {
 
   onSubmit(form: NgForm) {
     this.loading = true;
-    this.authService.login(form.value).subscribe((data) => {
-      setTimeout(() => {
-        this.loading = false;
+    this.authService.signup(form.value).subscribe((data) => {
+      this.loading = false;
+      if (data) {
         this.cookService.set('token', (data as SignupPayload).token);
         this.user$.next(data as SignupPayload);
         this.router.navigateByUrl('/user');
-      }, 3000);
+      } else {
+        //handle errros
+      }
     });
   }
 }

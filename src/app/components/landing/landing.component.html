@@ -32,12 +32,32 @@
           class="my-2 outline-none border-none rounded-xl py-2 px-3 bg-almostWhite font-bold font-mono max-[768px]:w-full"
         />
         <div
-          class="flex justify-between w-full h-auto items-center max-[768px]:flex-col"
+          class="flex flex-col justify-between w-full h-auto items-left max-[768px]:flex-col"
         >
           <button
-            class="bg-blue-600 text-slate-50 p-3 w-1/3 rounded-3xl mt-4 font-bold ease-in duration-300 max-[768px]:w-full hover:bg-blue-900"
+            (click)="onSubmit()"
+            class="flex items-center justify-center bg-blue-600 text-slate-50 p-3 w-2/4 rounded-3xl mt-4 font-bold ease-in duration-300 max-[768px]:w-full hover:bg-blue-900"
           >
-            Login
+            <svg
+              *ngIf="loading"
+              class="animate-spin h-[20px] w-[20px] mr-3 ..."
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+            <span *ngIf="!loading"> Login</span>
           </button>
           <p
             class="underline decoration-blue-600 font-mono-font-bold text-slate-950 cursor-pointer max-[768px]:mt-2"

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
+import { AppCookieServiceService } from './app-cookie-service.service';
 
 @Injectable({
   providedIn: 'root',
@@ -7,9 +8,9 @@ import jwtDecode from 'jwt-decode';
 export class JwtService {
   jwtToken: string = '';
   decodedToken: { [key: string]: string | number } = {};
-  constructor() {}
+  constructor(private appCookieService: AppCookieServiceService) {}
 
-  setToken(token: string) {
+  setToken(token: string = document.cookie) {
     if (token) {
       this.jwtToken = token;
     }
@@ -17,8 +18,9 @@ export class JwtService {
   }
 
   decodeToken() {
+    this.jwtToken = this.appCookieService.get('token');
     if (this.jwtToken) {
-      this.decodeToken = jwtDecode(this.jwtToken);
+      this.decodedToken = jwtDecode(this.jwtToken);
     }
   }
 

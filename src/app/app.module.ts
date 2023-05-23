@@ -15,6 +15,12 @@ import { AuthService } from './services/auth.service';
 import { AppCookieServiceService } from './services/app-cookie-service.service';
 import { JwtService } from './services/jwt.service';
 import { UserComponent } from './components/user/user.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { MessageBoxComponent } from './components/message-box/message-box.component';
+import { SocketIOService } from './services/socket-io.service';
+import { StoreModule } from '@ngrx/store';
+import { chatReducer } from './store/reducers/chat.reducer';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +31,9 @@ import { UserComponent } from './components/user/user.component';
     FooterComponent,
     SignupComponent,
     UserComponent,
+    ChatComponent,
+    MessageBoxComponent,
+    EllipsisPipe,
   ],
   imports: [
     CommonModule,
@@ -33,8 +42,14 @@ import { UserComponent } from './components/user/user.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    StoreModule.forRoot({ online: chatReducer }),
   ],
-  providers: [AuthService, AppCookieServiceService, JwtService],
+  providers: [
+    AuthService,
+    AppCookieServiceService,
+    JwtService,
+    SocketIOService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
