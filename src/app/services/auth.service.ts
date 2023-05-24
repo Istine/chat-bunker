@@ -29,6 +29,10 @@ export class AuthService {
     const body = JSON.stringify(loginData);
     return this.http
       .post<SignupPayload>(`${BASE_URL}/auth/local-signup`, body, { headers })
-      .pipe(catchError((err) => of(false)));
+      .pipe(
+        catchError((err) => {
+          return of(err.error);
+        })
+      );
   }
 }

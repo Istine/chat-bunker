@@ -25,12 +25,17 @@ export class SignupComponent {
     this.loading = true;
     this.authService.signup(form.value).subscribe((data) => {
       this.loading = false;
-      if (data) {
+      const response = data as {
+        error: string | null;
+        token?: string;
+        message?: string | null;
+      };
+      if (response.error) {
+        alert(response.message);
+      } else {
         this.cookService.set('token', (data as SignupPayload).token);
         this.user$.next(data as SignupPayload);
         this.router.navigateByUrl('/user');
-      } else {
-        //handle errros
       }
     });
   }

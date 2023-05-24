@@ -43,7 +43,7 @@ export class JwtService {
     if (expiryTime) {
       return 1000 * expiryTime - new Date().getTime() < 5000;
     } else {
-      return false;
+      return true;
     }
   }
 }

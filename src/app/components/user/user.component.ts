@@ -23,7 +23,6 @@ export class UserComponent implements OnInit {
     this.jwtService.decodeToken();
     const email = this.jwtService.decodedToken['email'] as string;
     this.email = email;
-    // "@angular/core": "^15.2.0",
 
     this.socketService.setUpConnection();
     this.socketService.socket?.emit('user-connected', email);

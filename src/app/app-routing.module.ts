@@ -5,6 +5,7 @@ import { FourzerofourComponent } from './components/fourzerofour/fourzerofour.co
 import { SignupComponent } from './components/signup/signup.component';
 import { UserComponent } from './components/user/user.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent,
+    canActivate: [AuthGuard],
     children: [{ path: 'chat', component: ChatComponent }],
   },
   { path: '**', component: FourzerofourComponent },

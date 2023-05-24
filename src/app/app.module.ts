@@ -21,6 +21,7 @@ import { SocketIOService } from './services/socket-io.service';
 import { StoreModule } from '@ngrx/store';
 import { chatReducer } from './store/reducers/chat.reducer';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
     AppCookieServiceService,
     JwtService,
     SocketIOService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })
