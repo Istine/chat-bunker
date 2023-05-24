@@ -9,6 +9,6 @@ export interface SignupPayload {
 }
 
 export interface LoginPayload {
-  token?: string;
+  token: string;
   message: string;
 }

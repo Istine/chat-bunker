@@ -19,7 +19,11 @@ export class AuthService {
       .post<any>(`${BASE_URL}/auth/local-login`, body, {
         headers,
       })
-      .pipe(catchError((err) => of([false, err['message']])));
+      .pipe(
+        catchError((err) => {
+          return of(err.error);
+        })
+      );
   }
 
   signup(loginData: User): Observable<SignupPayload | unknown> {
